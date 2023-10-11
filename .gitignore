@@ -1,0 +1,5 @@
+*.filters
+*.user
+Debug/
+Orchestra/x64
+.vs/
