@@ -1,18 +1,18 @@
 #pragma once
 #include "Base.h"
-class wind_instr :
+class string_instr :
     public Base
 {
 public:
-    wind_instr();
-    wind_instr(char file);
-    wind_instr(const wind_instr& other);
-    ~wind_instr() override;
+    string_instr();
+    string_instr(char file);
+    string_instr(const string_instr& other);
+    ~string_instr() override;
 
     char* get_name_manufacture();
     void set_name_manufacture(char* NameManufacture);
-    char* get_defects();
-    void set_defects(char* Defects);
+    char* get_text_description();
+    void set_text_description(char* TextDescription);
 
     void show_instrument() override;
     void change() override;
@@ -21,5 +21,5 @@ public:
     void load_file(std::ifstream& fin) override;
 private:
     char* name_manufacture;
-    char* defects;
+    char* text_description;
 };

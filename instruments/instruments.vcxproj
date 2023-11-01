@@ -128,16 +128,31 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Base.h" />
+    <ClInclude Include="convert_to_float.h" />
+    <ClInclude Include="elementx.h" />
+    <ClInclude Include="Keeper.h" />
+    <ClInclude Include="my_exception.h" />
     <ClInclude Include="perc_instr.h" />
-    <ClInclude Include="string_intstr.h" />
+    <ClInclude Include="read_line_file.h" />
+    <ClInclude Include="string_instr.h" />
+    <ClInclude Include="to_get_string.h" />
     <ClInclude Include="wind_instr.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Base.cpp" />
+    <ClCompile Include="convert_to_float.cpp" />
+    <ClCompile Include="elementx.cpp" />
+    <ClCompile Include="Keeper.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="my_exception.cpp" />
     <ClCompile Include="perc_instr.cpp" />
-    <ClCompile Include="string_intstr.cpp" />
+    <ClCompile Include="read_line_file.cpp" />
+    <ClCompile Include="string_instr.cpp" />
+    <ClCompile Include="to_get_string.cpp" />
     <ClCompile Include="wind_instr.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="orchestra.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

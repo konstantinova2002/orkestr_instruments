@@ -1,10 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS
-#include "wind_instr.h"
+#define _CRT_SECURE_NO_WARNINGS  
+#include "string_instr.h"
 using namespace std;
 
-wind_instr::wind_instr()
+string_instr::string_instr() 
 {
-	cout << "\n>>>>>>Вызван конструктор класса wind_instr (без параметров)<<<<<<\n";
+	std::cout << "\n>>>>>>Вызван конструктор класса string_instr (без параметров)<<<<<<\n";
 	system("pause");
 
 	const char* initStr = "\t-";
@@ -12,67 +12,67 @@ wind_instr::wind_instr()
 	name_manufacture = new char[sizeof(initStr)];
 	strcpy(name_manufacture, initStr);
 
-	defects = new char[sizeof(initStr)];
-	strcpy(defects, initStr);
+	text_description = new char[sizeof(initStr)];
+	strcpy(text_description, initStr);
 
-	int choiceWind;
-	int NumUnitsWind;
-	float CostWind;
+	int choiceStringInst;
+	int NumUnitsStringInst;
+	float CostStringInst;
 	int lenString;
 	do 
 	{
 		system("cls");
-		cout << "Введите данные о духовом инструменте" << endl
+		cout << "Введите данные о струнном инструменте" << endl
 			<< "[1] - Название" << endl
 			<< "[2] - ФИО владельца" << endl
 			<< "[3] - Количество единиц в оркестре" << endl
 			<< "[4] - Стоимость" << endl
 			<< "[5] - Наименование производителя" << endl
-			<< "[6] - Какие дефекты присутвсвуют" << endl
+			<< "[6] - Краткое текстовое описание" << endl
 			<< "[7] - Выход" << endl
 			<< "Выбранный пункт: ";
-		cin >> choiceWind;
+		cin >> choiceStringInst;
 
 
-		switch (choiceWind) 
+		switch (choiceStringInst) 
 		{
 		case 1:
 			system("cls");
-			cout << "Духовой интрумент\n";
+			cout << "Струнный интрумент\n";
 			cout << "Введите название:\n" << endl;
 			set_name_instr(to_get_string(&lenString));
 			break;
 		case 2:
 			system("cls");
-			cout << "Духовой инструмент\n";
+			cout << "Струнный инструмент\n";
 			cout << "Введите ФИО владельца:\n" << endl;
 			set_FIO(to_get_string(&lenString));
 			break;
 		case 3:
 			system("cls");
-			cout << "Духовой инструмент\n";
+			cout << "Струнный инструмент\n";
 			cout << "Введите количество единиц в оркестре: ";
-			cin >> NumUnitsWind;
-			set_num_in_orchestra(NumUnitsWind);
+			cin >> NumUnitsStringInst;
+			set_num_in_orchestra(NumUnitsStringInst);
 			break;
 		case 4:
 			system("cls");
-			cout << "Духовой инструмент\n";
+			cout << "Струнный инструмент\n";
 			cout << "Введите стоимость: ";
-			cin >> CostWind;
-			set_cost(CostWind);
+			cin >> CostStringInst;
+			set_cost(CostStringInst);
 			break;
 		case 5:
 			system("cls");
-			cout << "Духовой инструмент\n";
+			cout << "Струнный инструмент\n";
 			cout << "Введите наименование производителя: \n" << endl;
 			name_manufacture = to_get_string(&lenString);
 			break;
 		case 6:
 			system("cls");
-			cout << "Духовой инструмент\n";
-			cout << "Напишите какие дефекты присутсвуют в этом инструменте:\n" << endl;
-			defects = to_get_string(&lenString);
+			cout << "Струнный инструмент\n";
+			cout << "Напишите краткое текстовое описание:\n" << endl;
+			text_description = to_get_string(&lenString);
 			break;
 		case 7:
 			break;
@@ -81,68 +81,70 @@ wind_instr::wind_instr()
 			system("pause");
 			break;
 		}
-	} while (choiceWind != 7);
+	} while (choiceStringInst != 7);
 }
 
-wind_instr::wind_instr(char file)
+string_instr::string_instr(char file)
 {
-	std::cout << "\n>>>>>>Вызван конструктор класса wind_instr (с параметром)<<<<<<\n";
+	std::cout << "\n>>>>>>Вызван конструктор класса string_instr (с параметром)<<<<<<\n";
 	system("pause");
 
 	name_manufacture = nullptr;
-	defects = nullptr;
+	text_description = nullptr;
 }
 
-wind_instr::wind_instr(const wind_instr& other)
+string_instr::string_instr(const string_instr& other)
 {
-	cout << "\n>>>>>>Вызван конструктор класса wind_instr (копирования)<<<<<<\n";
+	std::cout << "\n>>>>>>Вызван конструктор класса string_instr (копирования)<<<<<<\n";
 	system("pause");
+
 	strcpy(this->name_manufacture, other.name_manufacture);
-	strcpy(this->defects, other.defects);
+	strcpy(this->text_description, other.text_description);
 }
 
-wind_instr::~wind_instr()
+string_instr::~string_instr()
 {
-	cout << "\n>>>>>>Вызван деструктор класса wind_instr<<<<<<\n";
+	std::cout << "\n>>>>>>Вызван деструктор класса string_instr<<<<<<\n";
 	system("pause");
+
 	delete[] name_manufacture;
 	name_manufacture = nullptr;
-	delete[] defects;
-	defects = nullptr;
+	delete[] text_description;
+	text_description = nullptr;
 }
 
-char* wind_instr::get_name_manufacture() 
+char* string_instr::get_name_manufacture()
 {
 	return name_manufacture;
 }
 
-void wind_instr::set_name_manufacture(char* name_manufacture) 
+void string_instr::set_name_manufacture(char* name_manufacture) 
 {
 	this->name_manufacture = name_manufacture;
 }
 
-char* wind_instr::get_defects() 
+char* string_instr::get_text_description()
 {
-	return defects; 
+	return text_description;
 }
 
-void wind_instr::set_defects(char* defects) 
+void string_instr::set_text_description(char* text_description) 
 {
-	this->defects = defects;
+	this->text_description = text_description;  
 }
 
-void wind_instr::show_instrument()
+void string_instr::show_instrument()
 {
-	cout << "\nУдарный инструмент\n\n"
+	cout << "\nСтрунный инструмент\n\n"
 		<< "Название: " << get_name_instr() << endl
 		<< "ФИО владельца: " << get_FIO() << endl
 		<< "Количество единиц в оркестре: " << get_num_in_orchestra() << endl
 		<< "Стоимость: " << get_cost() << endl
-		<< "Наименование производителя: " << get_name_manufacture() << endl
-		<< "Дефекты: " << get_defects() << endl;
+		<< "Производитель: " << get_name_manufacture() << endl
+		<< "Описание: " << get_text_description() << endl;
 }
 
-void wind_instr::change()
+void string_instr::change() 
 {
 	int lenString;
 	int choiceChangePerc;
@@ -157,7 +159,7 @@ void wind_instr::change()
 		<< "[6] - Описание" << endl
 		<< "Выбранный пункт: ";
 	cin >> choiceChangePerc;
-	switch (choiceChangePerc)
+	switch (choiceChangePerc) 
 	{
 	case 1:
 		cout << "\nВведите название: ";
@@ -182,8 +184,8 @@ void wind_instr::change()
 		name_manufacture = to_get_string(&lenString);
 		break;
 	case 6:
-		cout << "Напишите какие дефекты присутсвуют в этом инструменте: ";
-		defects = to_get_string(&lenString);
+		cout << "Напишите краткое текстовое описание: ";
+		text_description = to_get_string(&lenString);
 		break;
 	default:
 		cout << "\n\nНеккоректный выбор!!!\nПожалуйста, выберете пункт от 1 до 6.\n\n";
@@ -192,30 +194,30 @@ void wind_instr::change()
 	}
 }
 
-void wind_instr::save_to_file(std::ofstream& outputFile)
+void string_instr::save_to_file(std::ofstream& outputFile) 
 {
 	outputFile << "Номер: " << get_number_in_keeper() << "\n"
-		<< "Духовой инструмент\n\n"
+		<< "Струнный инструмент\n\n"
 		<< "Название: " << get_name_instr() << "\n"
 		<< "ФИО владельца: " << get_FIO() << "\n"
 		<< "Количество единиц в оркестре: " << get_num_in_orchestra() << "\n"
 		<< "Стоимость: " << get_cost() << "\n"
 		<< "Производитель: " << name_manufacture << "\n"
-		<< "Дефекты: " << defects << "\n\n\n";
+		<< "Описание: " << text_description << "\n\n\n";
 }
 
-void wind_instr::save_service(std::ofstream& fout)
+void string_instr::save_service(std::ofstream& fout)
 {
-	fout << "W" << endl
+	fout << "S" << endl
 		<< get_name_instr() << endl
 		<< get_FIO() << endl
 		<< get_num_in_orchestra() << endl
 		<< get_cost() << endl
 		<< name_manufacture << endl
-		<< defects << endl;
+		<< text_description << endl;
 }
 
-void wind_instr::load_file(std::ifstream& fin)
+void string_instr::load_file(std::ifstream& fin) 
 {
 	for (int i = 0; i < 6; i++) 
 	{
@@ -237,7 +239,7 @@ void wind_instr::load_file(std::ifstream& fin)
 			name_manufacture = read_line_file(fin);
 			break;
 		case 5:
-			defects = read_line_file(fin);
+			text_description = read_line_file(fin);
 			break;
 		}
 	}
